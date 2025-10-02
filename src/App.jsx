@@ -1,5 +1,10 @@
-import { useState } from 'react'
+import { useReducer, useState } from 'react'
 import './App.css'
+
+
+// Components
+import Header from './components/Header'
+import AddTask from './components/AddTask'
 
 
 
@@ -12,9 +17,12 @@ import './App.css'
 
 
 function App() {
+  const [task, setTask] = useState("");
 
   return (
     <>
+      <Header />
+      <AddTask state={task} setState={setTask}/>
     
     </>
   )
