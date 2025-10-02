@@ -6,8 +6,8 @@ import './App.css'
 import Header from './components/Header'
 import TextInput from './components/TextInput';
 import ActionButton from './components/ActionButton';
-import PartyMember from './components/PartyMember';
-import partyReducer from './reducers/partyReducer'
+import ListItem from './components/ListItem';
+import listReducer from './reducers/listReducer'
 
 
 
@@ -22,12 +22,14 @@ import partyReducer from './reducers/partyReducer'
 
 function App() {
   const [todo, setToDo] = useState("");
-  const [party, dispatch] = useReducer(partyReducer, initialState);
+  const [items, dispatch] = useReducer(listReducer, initialState);
+  //const [party, dispatch] = useReducer(partyReducer, initialState);
 
 
-  const partyList = party.map((li) => {
+  const itemsList = items.map((li) => {
     return (
-      <PartyMember key={li.todo} li={li} dispatch={dispatch} />
+      <ListItem key={li.todo} li={li} dispatch={dispatch} />
+      // <PartyMember key={li.todo} li={li} dispatch={dispatch} />
 
     )
   })
@@ -47,7 +49,7 @@ function App() {
         </ActionButton>
       </div>
       <div>
-        {partyList}
+        {itemsList}
       </div>
     </>
   );

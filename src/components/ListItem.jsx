@@ -2,7 +2,7 @@ import { useState } from "react";
 import ActionButton from "./ActionButton";
 
 
-export default function PartyMember({ li, dispatch }) {
+export default function ListItem({ li, dispatch }) {
   
 
   return (
