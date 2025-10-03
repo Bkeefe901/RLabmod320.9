@@ -6,7 +6,11 @@ export default function ListItem({ li, dispatch }) {
 
 
   function handleChange(e){
-    return !checked;
+    // return console.log(e.target.checked);
+    if(e.target.checked){
+      return dispatch({type: "checked", payload: {id: e.target.id} })
+    }
+   
   }
   
 
@@ -14,7 +18,7 @@ export default function ListItem({ li, dispatch }) {
     <>
       
       <div style={{ width: "100%", textAlign: "center", marginBottom: "25px", display: "flex" }}>
-        <input type="checkbox" id={li.name}  onChange={handleChange} />
+        <input type="checkbox" id={li.id}  onChange={handleChange} />
         <h2>{li.todo}</h2>
         <ActionButton
           type="edit"

@@ -14,15 +14,25 @@ export default function reducer(state, { type, payload: { todo, id } }) {
           toDoExists = true;
         }
       });
-      //let i = state.length;
+      let i = state.length;
 
       if (toDoExists) return state;
       return [{
+        id: i,
         todo,
         completed:false
        }, 
       ...state
       ]
+    }
+    case "checked": {
+      let otherItems = state.filter((item) => item.id != id);
+      let checkedItem = state.filter((item) => item.id == id);
+      checkedItem[0].completed = true;
+      // console.log(checkedItem.id);
+      // Realized I need to figure out how to change the 'completed' value of the 'checked' item and return it to a new state object with all the other state objects (cant edit in place).
+      // return [...checkedItem, ...otherItems];
+      return [...checkedItem, ...otherItems];
     }
     case "delete": {
       
