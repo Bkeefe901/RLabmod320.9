@@ -8,7 +8,9 @@ export default function ListItem({ li, dispatch }) {
   function handleChange(e){
     // return console.log(e.target.checked);
     if(e.target.checked){
-      return dispatch({type: "checked", payload: {id: e.target.id} })
+      return dispatch({type: "checked", payload: {id: e.target.id} });
+    }else{
+      return dispatch({type: "unchecked", payload: {id: e.target.id}});
     }
    
   }

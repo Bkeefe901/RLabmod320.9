@@ -57,12 +57,12 @@ function App() {
 
 const initialState = [
   {
-    id: 0,
+    id: 1,
     todo: "Clean apartment",
     completed: false,
   },
   {
-    id: 1,
+    id: 0,
     todo: "Buy Groceries",
     completed: false,
   }

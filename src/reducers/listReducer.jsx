@@ -29,10 +29,22 @@ export default function reducer(state, { type, payload: { todo, id } }) {
       let otherItems = state.filter((item) => item.id != id);
       let checkedItem = state.filter((item) => item.id == id);
       checkedItem[0].completed = true;
-      // console.log(checkedItem.id);
-      // Realized I need to figure out how to change the 'completed' value of the 'checked' item and return it to a new state object with all the other state objects (cant edit in place).
-      // return [...checkedItem, ...otherItems];
-      return [...checkedItem, ...otherItems];
+      let newState = [...checkedItem, ...otherItems];
+      newState.sort((a, b) => b.id - a.id );
+
+      return newState;
+    }
+// Should create a controller function for the checked and unchecked since the code is essientally exactly the same.
+
+    case "unchecked": {
+      let otherItems = state.filter((item) => item.id != id);
+      let checkedItem = state.filter((item) => item.id == id);
+      checkedItem[0].completed = false;
+      let newState = [...checkedItem, ...otherItems];
+      newState.sort((a, b) => b.id - a.id );
+
+      return newState;
+
     }
     case "delete": {
       
