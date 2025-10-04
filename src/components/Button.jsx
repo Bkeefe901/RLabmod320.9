@@ -1,6 +1,7 @@
-export default function Button({children, onClick}){
-    
+export default function Button({children, onClick, canPress}){
     return (
-        <button onClick={onClick} >{children}</button>
+        canPress ? 
+        <button onClick={onClick}  >{children}</button> : 
+        <button disabled >{children}</button>
     )
 }

@@ -44,6 +44,7 @@ function App() {
           type="addToDo"
           payload={{ todo }}
           dispatch={dispatch}
+          canPress={true}
         >
           Add
         </ActionButton>

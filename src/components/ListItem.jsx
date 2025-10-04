@@ -3,13 +3,15 @@ import ActionButton from "./ActionButton";
 
 
 export default function ListItem({ li, dispatch }) {
-
+const [canPress, setCanPress] = useState(false);
 
   function handleChange(e){
     // return console.log(e.target.checked);
     if(e.target.checked){
+      setCanPress(true);
       return dispatch({type: "checked", payload: {id: e.target.id} });
     }else{
+      setCanPress(false);
       return dispatch({type: "unchecked", payload: {id: e.target.id}});
     }
    
@@ -27,6 +29,7 @@ export default function ListItem({ li, dispatch }) {
           payload={{ id: li.id }}
           dispatch={dispatch}
           className="one-character"
+          canPress={true}
         >
           Edit
         </ActionButton>
@@ -35,6 +38,7 @@ export default function ListItem({ li, dispatch }) {
           payload={{ id: li.id }}
           dispatch={dispatch}
           className="one-character"
+          canPress={canPress}
         >
           Delete
         </ActionButton>
