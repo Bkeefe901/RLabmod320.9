@@ -7,7 +7,8 @@ import Header from './components/Header'
 import TextInput from './components/TextInput';
 import ActionButton from './components/ActionButton';
 import ListItem from './components/ListItem';
-import listReducer from './reducers/listReducer'
+import listReducer from './reducers/listReducer';
+import EditField from './components/EditField';
 
 
 
@@ -27,11 +28,21 @@ function App() {
 
 
   const itemsList = items.map((li) => {
-    return (
-      <ListItem key={li.todo} li={li} dispatch={dispatch} />
-      // <PartyMember key={li.todo} li={li} dispatch={dispatch} />
+    if(li.edit){
+      return(
+        <EditField key={li.todo} li={li} dispatch={dispatch} />
+      )
+    } else{
 
+      return (
+      <ListItem 
+        key={li.todo} 
+        li={li} 
+        dispatch={dispatch} 
+        />
+      // <PartyMember key={li.todo} li={li} dispatch={dispatch} />
     )
+    }
   })
 
 
@@ -61,11 +72,13 @@ const initialState = [
     id: 1,
     todo: "Clean apartment",
     completed: false,
+    edit: false
   },
   {
     id: 0,
     todo: "Buy Groceries",
     completed: false,
+    edit: false
   }
 ];
 

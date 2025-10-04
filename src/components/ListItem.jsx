@@ -28,7 +28,6 @@ const [canPress, setCanPress] = useState(false);
           type="edit"
           payload={{ id: li.id }}
           dispatch={dispatch}
-          className="one-character"
           canPress={true}
         >
           Edit
@@ -37,7 +36,6 @@ const [canPress, setCanPress] = useState(false);
           type="delete"
           payload={{ id: li.id }}
           dispatch={dispatch}
-          className="one-character"
           canPress={canPress}
         >
           Delete
