@@ -1,4 +1,4 @@
-export default function reducer(state, { type, payload: { todo, id } }) {
+export default function reducer(state, { type, payload: { todo, id, save } }) {
   switch (type) {
     case "addToDo": {
       if (todo === ""){
@@ -56,6 +56,37 @@ export default function reducer(state, { type, payload: { todo, id } }) {
 
       return newState;
 
+    }
+    case "save": {
+       let otherItems = state.filter((item) => item.id != id);
+       let editItem = state.filter((item) => item.id == id);
+      //  let savedItem = {...editItem};
+      //  newSavedItem.todo = save;
+      //  newSavedItem.edit = false;
+
+       let savedItem = {
+        id: editItem[0].id,
+        todo: save,
+        completed: false,
+        edit: false
+       }
+
+      let newState = [savedItem, ...otherItems];
+      newState.sort((a, b) => b.id - a.id );
+
+      return newState;
+       
+
+
+      //  {
+      //   id: i,
+      //   todo,
+      //   completed:false,
+      //   edit: false
+      //  }, 
+
+
+      
     }
     case "delete": {
       let newList = state.filter((item) => item.id != id);
