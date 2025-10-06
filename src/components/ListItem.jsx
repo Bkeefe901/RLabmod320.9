@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ActionButton from "./ActionButton";
+import CheckBox from "./CheckBox";
 
 
 export default function ListItem({ li, dispatch }) {
@@ -21,7 +22,7 @@ const [canPress, setCanPress] = useState(false);
     <>
       
       <div className="listDiv" >
-        <input className="check" type="checkbox" id={li.id}  onChange={handleChange} />
+        <CheckBox className="check" type="checkbox" id={li.id}  onChange={handleChange} />
         <h2>{li.todo}</h2>
         <ActionButton
           type="edit"
