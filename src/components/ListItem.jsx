@@ -21,8 +21,8 @@ const [canPress, setCanPress] = useState(false);
   return (
     <>
       
-      <div style={{ width: "100%", textAlign: "center", marginBottom: "25px", display: "flex" }}>
-        <input type="checkbox" id={li.id}  onChange={handleChange} />
+      <div className="listDiv" >
+        <input className="check" type="checkbox" id={li.id}  onChange={handleChange} />
         <h2>{li.todo}</h2>
         <ActionButton
           type="edit"
