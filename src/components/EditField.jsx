@@ -21,9 +21,3 @@ export default function EditField({li, dispatch}) {
         </div>
     )
 }
-
-// The action button needs the payload of the state 'save' but i think it also needs the li.id atleast.
-// The TextInput needs to be able to take a placeHolder prop I think set = li.todo or maybe I can find a better way so that it is not just a placeholder
-
-
-// input type="text" placeholder={li.todo} state={li.todo} setSate={setSave}

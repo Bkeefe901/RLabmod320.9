@@ -1,4 +1,4 @@
-export default function TextInput({state, setState, placeHolder}){
+export default function TextInput({state, setState}){
 
     return(
         <input 

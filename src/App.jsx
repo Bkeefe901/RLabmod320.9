@@ -12,23 +12,14 @@ import EditField from './components/EditField';
 
 
 
-
-// List item basic values:
-// {
-//   id: Number( for filtering / deleting),
-//     todo: String,
-//       completed: Boolean,
-// }
-
-
 function App() {
   const [todo, setToDo] = useState("");
   const [items, dispatch] = useReducer(listReducer, initialState);
-  //const [party, dispatch] = useReducer(partyReducer, initialState);
 
 
-  const itemsList = items.map((li) => {
-    if(li.edit){
+
+  const itemsList = items.map((li) => { 
+    if(li.edit){ // Checks if the edit value is true when mapping over the items state (if the edit button was clicked), and if so delivers the EditField component instead of ListItem
       return(
         <EditField key={li.todo} li={li} dispatch={dispatch} />
       )
@@ -40,7 +31,6 @@ function App() {
         li={li} 
         dispatch={dispatch} 
         />
-      // <PartyMember key={li.todo} li={li} dispatch={dispatch} />
     )
     }
   })

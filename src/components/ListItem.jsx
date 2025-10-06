@@ -6,7 +6,6 @@ export default function ListItem({ li, dispatch }) {
 const [canPress, setCanPress] = useState(false);
 
   function handleChange(e){
-    // return console.log(e.target.checked);
     if(e.target.checked){
       setCanPress(true);
       return dispatch({type: "checked", payload: {id: e.target.id} });
@@ -46,4 +45,3 @@ const [canPress, setCanPress] = useState(false);
 }
 
 
-// checked={li.completed}
